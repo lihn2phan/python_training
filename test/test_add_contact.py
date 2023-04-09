@@ -33,7 +33,7 @@ def test_add_contact(app):
                        secondary_address="sec_addr1",
                        secondary_home="sec_home1",
                        secondary_notes="sec_notes1")
-    app.create_user(contact1)
+    app.contact.create(contact1)
     app.session.logout()
 
 
