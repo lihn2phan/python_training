@@ -8,7 +8,7 @@ def app(request):
     request.addfinalizer(fixture.destroy)
     return fixture
 def test_add_contact(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     contact1 = Contact(first_name="f_name1",
                        middle_name="m_name1",
                        last_name="l_name1",
@@ -34,7 +34,7 @@ def test_add_contact(app):
                        secondary_home="sec_home1",
                        secondary_notes="sec_notes1")
     app.create_user(contact1)
-    app.logout()
+    app.session.logout()
 
 
 
