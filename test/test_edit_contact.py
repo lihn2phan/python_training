@@ -26,7 +26,4 @@ def test_edit_first_group(app):
                        secondary_address="sec_addr1_e",
                        secondary_home="sec_home1_e",
                        secondary_notes="sec_notes1_e")
-
-    app.session.login(username="admin", password="secret")
     app.contact.edit_first_contact(contact1)
-    app.session.logout()

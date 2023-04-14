@@ -3,7 +3,6 @@ from model.contact import Contact
 from fixture.application import Application
 import pytest
 def test_add_contact(app):
-    app.session.login(username="admin", password="secret")
     contact1 = Contact(first_name="f_name1",
                        middle_name="m_name1",
                        last_name="l_name1",
@@ -29,7 +28,6 @@ def test_add_contact(app):
                        secondary_home="sec_home1",
                        secondary_notes="sec_notes1")
     app.contact.create(contact1)
-    app.session.logout()
 
 
 
