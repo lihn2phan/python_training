@@ -26,4 +26,7 @@ def test_edit_first_group(app):
                        secondary_address="sec_addr1_e",
                        secondary_home="sec_home1_e",
                        secondary_notes="sec_notes1_e")
+
+    if app.contact.count() == 0:
+        app.contact.create(Contact(first_name="contt", middle_name="m_name1"))
     app.contact.edit_first_contact(contact1)

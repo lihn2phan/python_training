@@ -3,9 +3,17 @@ class ContactHelper:
         self.app = app
     def fill_field(self, name_element, text):
         wd = self.app.wd
-        wd.find_element_by_name(name_element).click()
-        wd.find_element_by_name(name_element).clear()
-        wd.find_element_by_name(name_element).send_keys(text)
+        if text is not None:
+            wd.find_element_by_name(name_element).click()
+            wd.find_element_by_name(name_element).clear()
+            wd.find_element_by_name(name_element).send_keys(text)
+
+    def create(self, contact):
+        wd = self.app.wd
+        wd.find_element_by_link_text("add new").click()
+        self.fill_fields(contact)
+        wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        self.app.open_home_page()
 
     def fill_fields(self, contact):
         self.fill_field("firstname", contact.first_name)
@@ -26,13 +34,6 @@ class ContactHelper:
         self.fill_field("address2", contact.secondary_address)
         self.fill_field("phone2", contact.secondary_home)
         self.fill_field("notes", contact.secondary_notes)
-
-    def create(self, contact):
-        wd = self.app.wd
-        wd.find_element_by_link_text("add new").click()
-        self.fill_fields(contact)
-        wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
-        self.app.open_home_page()
 
     def delete_first_contact(self):
         wd = self.app.wd
