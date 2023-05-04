@@ -2,7 +2,6 @@ from model.contact import Contact
 
 
 def test_edit_first_group(app):
-    old_contacts = app.contact.get_contact_list()
     contact1 = Contact(first_name="f_name_e",
                        middle_name="m_name_e",
                        last_name="l_name1_e",
@@ -30,6 +29,8 @@ def test_edit_first_group(app):
 
     if app.contact.count() == 0:
         app.contact.create(Contact(first_name="contt", middle_name="m_name1"))
+
+    old_contacts = app.contact.get_contact_list()
 
     contact1.id = old_contacts[0].id
     app.contact.edit_first_contact(contact1)
