@@ -6,6 +6,7 @@ def test_edit_group_name(app):
     old_groups = app.group.get_group_list()
     index = randrange(len(old_groups))
     group = Group(name="new_group_name55")
+
     group.id = old_groups[index].id
     app.group.modify_group_by_index(index, group)
 
