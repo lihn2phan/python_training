@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 from model.contact import Contact
-from fixture.application import Application
-import pytest
+
 def test_add_contact(app):
-    contact1 = Contact(first_name="f_name1",
+    contact = Contact(first_name="f_name1",
                        middle_name="m_name1",
                        last_name="l_name1",
                        nickname="nickname1",
@@ -27,7 +26,14 @@ def test_add_contact(app):
                        secondary_address="sec_addr1",
                        secondary_home="sec_home1",
                        secondary_notes="sec_notes1")
-    app.contact.create(contact1)
+
+
+    old_contacts = app.contact.get_contact_list()
+    app.contact.create(contact)
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) + 1 == len(new_contacts)
+    old_contacts.append(contact)
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
 
 
 

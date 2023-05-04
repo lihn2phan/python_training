@@ -1,7 +1,7 @@
 from model.group import Group
 
 
-def test_detete_first_group(app):
+def test_delete_first_group(app):
     old_groups = app.group.get_group_list()
     if app.group.count() == 0:
         app.group.create(Group(name="test"))
