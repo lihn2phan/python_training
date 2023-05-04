@@ -31,7 +31,6 @@ def test_edit_first_group(app):
         app.contact.create(Contact(first_name="contt", middle_name="m_name1"))
 
     old_contacts = app.contact.get_contact_list()
-
     contact1.id = old_contacts[0].id
     app.contact.edit_first_contact(contact1)
     assert (len(old_contacts)) == app.contact.count()

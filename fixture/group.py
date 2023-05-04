@@ -53,6 +53,7 @@ class GroupHelper:
     def modify_first_group(self, new_group_date):
         self.modify_group_by_index(0, new_group_date)
 
+
     def modify_group_by_index(self, index, new_group_date):
         wd = self.app.wd
         self.open_groups_page()
