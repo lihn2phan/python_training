@@ -10,10 +10,10 @@ def test_edit_some_contact(app):
                        title="title1_e",
                        company="company1_e",
                        address="address1_e",
-                       home="home1_e",
-                       mobile="mobile1_e",
-                       work="work1_e",
-                       fax="fax1_e",
+                       homephone="home1_e",
+                       mobilephone="mobile1_e",
+                       workphone="work1_e",
+                       faxphone="fax1_e",
                        email="emaill1_e", email2="emaill2_e", email3="emaill3_e",
                        homepage="homepage1_e",
                        birthday_day="4",
@@ -24,7 +24,7 @@ def test_edit_some_contact(app):
                        anniversary_year="2001",
                        group="group1_e",
                        secondary_address="sec_addr1_e",
-                       secondary_home="sec_home1_e",
+                       secondaryphone="sec_home1_e",
                        secondary_notes="sec_notes1_e")
 
     if app.contact.count() == 0:

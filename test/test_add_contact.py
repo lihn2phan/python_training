@@ -2,18 +2,18 @@
 from model.contact import Contact
 
 def test_add_contact(app):
-    contact = Contact(first_name="f_name1",
+    contact = Contact(first_name="Ivan",
                        middle_name="m_name1",
-                       last_name="l_name1",
+                       last_name="Petrov",
                        nickname="nickname1",
                        photo_path="C:\\fakepath\\1.jpg",
                        title="title1",
                        company="company1",
                        address="address1",
-                       home="home1",
-                       mobile="mobile1",
-                       work="work1",
-                       fax="fax1",
+                       homephone="home1",
+                       mobilephone="mobile1",
+                       workphone="work1",
+                       faxphone="fax1",
                        email="emaill1", email2="emaill2", email3="emaill3",
                        homepage="homepage1",
                        birthday_day="1",
@@ -24,7 +24,7 @@ def test_add_contact(app):
                        anniversary_year="2000",
                        group="group1",
                        secondary_address="sec_addr1",
-                       secondary_home="sec_home1",
+                       secondaryphone="sec_home1",
                        secondary_notes="sec_notes1")
 
 
