@@ -12,6 +12,7 @@ except getopt.GetoptError as err:
     print(err)
     getopt.usage()
     sys.exit(2)
+
 n = 5
 f = "data/groups.json"
 
