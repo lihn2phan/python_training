@@ -6,6 +6,7 @@ import importlib
 fixture = None
 target = None
 import jsonpickle
+
 @pytest.fixture
 def app(request):
     global fixture
