@@ -24,7 +24,7 @@ class ORMFixture:
 
     def __init__(self, host, database, user, password):
         #привязка
-        self.db.bind('mysql', host=host, database=database, user=user, password=password, conv = decoders)
+        self.db.bind('mysql', host=host, database=database, user=user, password=password)
         #происходит сопоставление свойств описанных классов с таблицами и полями этих таблиц
         self.db.generate_mapping()
 
@@ -37,10 +37,8 @@ class ORMFixture:
         return self.convert_groups_to_model(select(g for g in ORMFixture.ORMGroup))
 
     def convert_contacts_to_model(self, contacts):
-        def convert(c):
-            return Contact(id=str(c.id), first_name=c.firstname, last_name=c.lastname, homephone=c.homephone,
-                        mobilephone=c.mobilephone, workphone=c.workphone, secondaryphone=c.secondaryphone,
-                        email=c.email, email2=c.email2, email3=c.email3, address=c.address)
+        def convert(contact):
+            return Contact(id=str(contact.id), first_name=contact.firstname, last_name=contact.lastname)
         return list(map(convert, contacts))
     @db_session
     def get_contact_list(self):
@@ -56,3 +54,4 @@ class ORMFixture:
         orm_group = list(select(g for g in ORMFixture.ORMGroup if g.id == group.id))[0]
         return self.convert_contacts_to_model(
             select(c for c in ORMFixture.ORMContact if c.deprecated is None and orm_group not in c.groups))
+
