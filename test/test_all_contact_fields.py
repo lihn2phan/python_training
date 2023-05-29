@@ -10,9 +10,9 @@ def test_all_contact_fields(app, db):
         contact_from_db = contacts_from_db[i]
         assert clear(contact_from_home_page.all_phones_from_home_page) == clear(merge_phones_like_on_home_page(contact_from_db))
         assert clear(contact_from_home_page.all_email_from_home_page) == clear(merge_email_like_on_home_page(contact_from_db))
-        assert clear(contact_from_home_page.address) == clear(contact_from_db.address)
-        assert clear(contact_from_home_page.first_name) == clear(contact_from_db.first_name)
-        assert clear(contact_from_home_page.last_name) == clear(contact_from_db.last_name)
+        assert contact_from_home_page.address == contact_from_db.address
+        assert contact_from_home_page.first_name == contact_from_db.first_name
+        assert contact_from_home_page.last_name == contact_from_db.last_name
 
 
 
