@@ -17,7 +17,7 @@ def test_add_contact_to_group(app):
     contact = random.choice(contacts)
 
     if len(db.get_contacts_not_in_group(group)) == 0:
-        app.contact.delete_contact_from_group(contact)
+        app.contact.delete_contact_from_group(contact.id, group.id)
     else:
         contact = random.choice(db.get_contacts_not_in_group(group))
 
